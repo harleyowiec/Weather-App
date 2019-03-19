@@ -1,0 +1,6 @@
+.Navbar {
+    display: flex;
+    height: 60px;
+    composes: navbar-bg from './../../index.css';
+    padding: 0 15px;
+}
