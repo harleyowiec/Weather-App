@@ -23,8 +23,10 @@ body {
 
 #root {
   height: 100%;
+  width: 100%;
+  display: flex;
 }
 
-.navbar-bg {
+.site-bg {
   background-color: #694e4e9c;
 }

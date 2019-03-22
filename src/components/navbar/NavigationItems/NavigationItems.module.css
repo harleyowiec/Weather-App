@@ -1,4 +1,28 @@
 .NavigationItems {
-    display: flex;
-    
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: -185px;
+  background-color: #fff;
+  height: 100%;
+  top: 35px;
+  z-index: 100;
+  padding: 10px;
+  transition: all 1s ease;
+}
+
+.MobileMenuActive {
+  right: 0;
+}
+
+
+@media screen and (min-width: 550px) {
+  .NavigationItems {
+    flex-direction: row;
+    position: static;
+    height: auto;
+  }
+  .ToggleMenu {
+    display: none;
+  }
 }

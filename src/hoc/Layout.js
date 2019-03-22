@@ -6,16 +6,26 @@ import classes from './Layout.module.css';
 
 class Layout extends Component {
 
-    render() {
-        return (
-            <>
-                <Navbar />
-                <main className={classes.Container}>
-                    {this.props.children}
-                </main>
-            </>
-        )
-    }
+
+  state = {
+    activeMobileMenu: false
+  }
+
+  toggleMobileMenu = () => {
+    this.setState(( prevState ) => {
+      return { activeMobileMenu: !prevState.activeMobileMenu };
+    });
+  }
+  render() {
+      return (
+          <div className={classes.Container}>
+              <Navbar ToggleMenu={this.toggleMobileMenu} MobileMenuState={this.state.activeMobileMenu} />
+              <main className={classes.Main}>
+                  {this.props.children}
+              </main>
+          </div>
+      )
+  }
 }
 
 export default Layout;

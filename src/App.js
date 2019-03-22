@@ -5,9 +5,6 @@ import Layout from './hoc/Layout';
 import WeatherForecast from './containers/WeatherForecast/WeatherForecast';
 
 
-
-import classes from './App.module.css';
-
 class App extends Component {
   
 

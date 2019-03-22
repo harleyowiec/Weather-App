@@ -1,3 +1,9 @@
 .NavigationItem {
+    margin: 10px;
+}
+
+@media screen and (min-width: 550px) {
+  .NavigationItem {
     margin: 0 10px;
+  }
 }

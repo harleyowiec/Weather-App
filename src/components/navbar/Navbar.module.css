@@ -1,6 +1,21 @@
 .Navbar {
     display: flex;
     height: 60px;
-    composes: navbar-bg from './../../index.css';
     padding: 0 15px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.ToggleMenu {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 550px) {
+  .ToggleMenu {
+    display: none;
+  }
 }
