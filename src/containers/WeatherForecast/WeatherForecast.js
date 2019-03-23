@@ -51,7 +51,7 @@ class WeatherForecast extends Component {
   }
 
   handlePressedKey = (e) => {
-    if (e.key == 'Enter') {
+    if (e.key === 'Enter') {
       this.getWeather(this.state.cityName);
     }
   }

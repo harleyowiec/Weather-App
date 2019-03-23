@@ -4,9 +4,10 @@ import classes from './NavigationItem.module.css';
 
 const NavigationItem = (props) => {
   return (
-    <div className={classes.NavigationItem}>
-      {props.children}
-    </div>
+    <li className={classes.NavigationItem}>
+      {/* <Link to={props.link}>{props.children}</Link> */}
+      <a href="/">{props.children}</a>
+    </li>
   )
 }
 

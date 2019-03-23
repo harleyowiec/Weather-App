@@ -7,6 +7,7 @@ import classes from './Navbar.module.css';
 
 
 const navbar = (props) => {
+
   return (
     <div className={classes.Navbar}>
         <Logo />
@@ -14,6 +15,7 @@ const navbar = (props) => {
         <span className={classes.ToggleMenu} onClick={props.ToggleMenu}>
           <i className="fas fa-bars"></i>
         </span>
+        
     </div>
   )
 }
