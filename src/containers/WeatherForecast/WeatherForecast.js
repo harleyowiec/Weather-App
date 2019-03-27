@@ -69,7 +69,12 @@ class WeatherForecast extends Component {
           buttonState={this.state.buttonActive}></SearchCity>
         <div className={classes.Container}>
         { this.state.weather !== null && this.state.weather.forecast.forecastday.map(item => {
-            return <WeatherDay day={item} />
+            return <WeatherDay 
+              dayName={item.day.name}
+              imgSrc={item.day.condition.icon}
+              imgAlt={item.day.condition.text}
+              maxTmp={item.day.maxtemp_c}
+              minTmp={item.day.mintemp_c} />
           })
         }
         </div>
