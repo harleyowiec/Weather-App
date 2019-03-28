@@ -70,7 +70,7 @@ class WeatherForecast extends Component {
         <div className={classes.Container}>
         { this.state.weather !== null && this.state.weather.forecast.forecastday.map(item => {
             return <WeatherDay 
-              dayName={item.day.name}
+              date={item.date}
               imgSrc={item.day.condition.icon}
               imgAlt={item.day.condition.text}
               maxTmp={item.day.maxtemp_c}

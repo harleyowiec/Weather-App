@@ -38,7 +38,7 @@ export default class DayForecast extends Component {
         {
           ( this.state.weather !== null ) ? 
           <WeatherDay 
-          dayName="Day"
+          date={this.state.weather.current.last_updated}
           imgSrc={this.state.weather.current.condition.icon}
           imgAlt={this.state.weather.current.condition.text}
           maxTmp={this.state.weather.current.temp_c}

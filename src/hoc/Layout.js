@@ -14,10 +14,6 @@ class Layout extends Component {
       activeMobileMenu: false
     }
   }
-  
-
-
-  
 
   componentDidMount() {
     document.addEventListener('click', this.handleClick, false);

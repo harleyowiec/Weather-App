@@ -1,6 +1,7 @@
 .SearchCity {
     display: flex;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .ToggleSearch {

@@ -14,9 +14,9 @@ class App extends Component {
     return (
       <>
         <Layout>
-        <Switch>
-            <Route path="/day" component={DayForecast} />
-            <Route path="/" component={WeatherForecast} />
+          <Switch>
+            <Route path="/forecast" component={WeatherForecast} />
+            <Route path="/" component={DayForecast} />
           </Switch>
         </Layout>
       </>
