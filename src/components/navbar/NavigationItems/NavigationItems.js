@@ -3,8 +3,6 @@ import React from 'react';
 
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.module.css';
-import WeatherForecast from '../../../containers/WeatherForecast/WeatherForecast';
-import DayForecast from '../../../containers/DayForecast/DayForecast';
 
 const NavigationItems = (props) => {
   return (

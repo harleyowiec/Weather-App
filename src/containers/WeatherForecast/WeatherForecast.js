@@ -1,82 +1,69 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import WeatherDay from '../../components/weatherDay/WeatherDay';
-import SearchCity from '../../components/searchCity/SearchCity';
+import WeatherDay from "../../components/weatherDay/WeatherDay";
+import SearchCity from "../../components/searchCity/SearchCity";
 
-import classes from './WeatherForecast.module.css';
-
+import classes from "./WeatherForecast.module.css";
 
 class WeatherForecast extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   state = {
-      weather: null,
-      cityName: '',
-      buttonActive: false
+    weather: null,
+    cityName: this.props.cityName
   };
-  
-  getWeather = async (cityName) => {
-    const apiKey = '65524a897a3f46aa866201755191303';
-    const api_call = await fetch(`http://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=5`);
+
+  componentDidMount() {
+    if (this.state.cityName !== null) {
+      this.getWeather();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.cityName !== prevProps.cityName) {
+      this.setState({
+        cityName: this.props.cityName
+      });
+      this.getWeather();
+    }
+  }
+
+  getWeather = async cityName => {
+    const apiKey = "65524a897a3f46aa866201755191303";
+    const api_call = await fetch(
+      `http://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${
+        this.props.cityName
+      }&days=5`
+    );
     const response = await api_call.json();
 
-    if(response.error) {
+    if (response.error) {
       console.log(response.error.message);
     } else {
       this.setState({
-      weather: response,
-      })
+        weather: response
+      });
     }
-
-    console.log(response);
-    
-  }
-
-  
-  setCityName = (e) => {
-    this.setState({
-      cityName: e.target.value
-    });
-  }
-
-  findCity = () => {
-    this.getWeather(this.state.cityName);
-  }
-
-  activateSearch = () => {
-    if (this.state.buttonActive === false) {
-      this.setState({
-        buttonActive: true
-      })
-    }
-  }
-
-  handlePressedKey = (e) => {
-    if (e.key === 'Enter') {
-      this.getWeather(this.state.cityName);
-    }
-  }
-
+  };
 
   render() {
     return (
       <>
-        <SearchCity 
-          onKeyUp={this.setCityName} 
-          onClick={this.findCity} 
-          onKeyPress={this.handlePressedKey}
-          className={classes.SearchCity} 
-          activateSearch={this.activateSearch} 
-          buttonState={this.state.buttonActive}></SearchCity>
         <div className={classes.Container}>
-        { this.state.weather !== null && this.state.weather.forecast.forecastday.map(item => {
-            return <WeatherDay 
-              date={item.date}
-              imgSrc={item.day.condition.icon}
-              imgAlt={item.day.condition.text}
-              maxTmp={item.day.maxtemp_c}
-              minTmp={item.day.mintemp_c} />
-          })
-        }
+          {this.state.weather !== null &&
+            this.state.weather.forecast.forecastday.map(item => {
+              return (
+                <WeatherDay
+                  date={item.date}
+                  imgSrc={item.day.condition.icon}
+                  imgAlt={item.day.condition.text}
+                  maxTmp={item.day.maxtemp_c}
+                  minTmp={item.day.mintemp_c}
+                />
+              );
+            })}
         </div>
       </>
     );
