@@ -1,9 +1,8 @@
 .NavigationItem {
   margin: 10px;
   list-style: none;
-  height: 100%;
   align-items: center;
-  
+  color: #000;
 }
 
 a {
@@ -13,18 +12,23 @@ a {
 
 .NavigationItem a {
   display: inline-block;
-  height: 100%;
   display: flex;
   align-items: center;
   padding: 0 5px;
 }
 
 .ActiveMenuTab {
-  background-color: red;
+  color: red;
 }
 
 @media screen and (min-width: 550px) {
   .NavigationItem {
     margin: 0 10px;
+    color: #fff;
+    height: 100%;
+  }
+
+  .NavigationItem a {
+    height: 100%;
   }
 }

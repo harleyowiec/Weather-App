@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
+
+import logo from "./../../../images/logo-dark.png";
 
 const Logo = () => {
   return (
-    <p >
-      Twoja pogoda
-    </p>
-  )
-}
+    <div class="logo">
+      <img src={logo} alt="logo" />
+    </div>
+  );
+};
 
 export default Logo;
-

@@ -1,10 +1,10 @@
 .Navbar {
-    display: flex;
-    height: 60px;
-    padding: 0 15px;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+  display: flex;
+  height: 60px;
+  padding: 10px 15px 0;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 .ToggleMenu {
@@ -12,6 +12,13 @@
   right: 20px;
   top: 20px;
   cursor: pointer;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.HamburgerMenuOpen {
+  color: #000;
 }
 
 @media screen and (min-width: 550px) {

@@ -1,10 +1,9 @@
 @font-face {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto'), 
-      url('./fonts/Roboto/Roboto-Regular.ttf') format('woff2'),
-      url('./fonts/Roboto/Roboto-Bold.ttf') format('woff2');
+  src: local("Roboto"), url("./fonts/Roboto/Roboto-Regular.ttf") format("woff2"),
+    url("./fonts/Roboto/Roboto-Bold.ttf") format("woff2");
 }
 
 html {
@@ -12,11 +11,9 @@ html {
 }
 
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
-  font-family:'Roboto',
-    sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,5 +25,13 @@ body {
 }
 
 .site-bg {
-  background-color: #694e4e29;
+  background: url("./images/day-and-night-1228029.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (min-width: 550px) {
+  body {
+    height: 100%;
+  }
 }
