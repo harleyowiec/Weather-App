@@ -18,7 +18,7 @@ a {
 }
 
 .ActiveMenuTab {
-  color: red;
+  color: #e83a3a;
 }
 
 @media screen and (min-width: 550px) {
