@@ -46,6 +46,8 @@ class WeatherForecast extends Component {
         weather: response
       });
     }
+
+    console.log(response);
   };
 
   render() {

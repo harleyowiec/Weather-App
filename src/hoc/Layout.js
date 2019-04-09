@@ -56,7 +56,6 @@ class Layout extends Component {
   };
 
   findCity = () => {
-    // this.getWeather(this.state.cityName);
     this.props.handleToUpdate(this.state.cityName);
   };
 
@@ -70,7 +69,7 @@ class Layout extends Component {
 
   handlePressedKey = e => {
     if (e.key === "Enter") {
-      // this.getWeather(this.state.cityName);
+      this.props.handleToUpdate(this.state.cityName);
     }
   };
 

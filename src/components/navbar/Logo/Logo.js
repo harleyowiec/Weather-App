@@ -4,7 +4,7 @@ import logo from "./../../../images/logo-dark.png";
 
 const Logo = () => {
   return (
-    <div class="logo">
+    <div className="logo">
       <img src={logo} alt="logo" />
     </div>
   );
