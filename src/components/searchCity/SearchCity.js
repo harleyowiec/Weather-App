@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "./SearchCity.module.css";
+import classes from "./SearchCity.module.scss";
 
 const searchCity = props => {
   let textInput = React.createRef();
@@ -8,6 +8,7 @@ const searchCity = props => {
   const handleClick = () => {
     textInput.current.focus();
   };
+
   return (
     <>
       <div

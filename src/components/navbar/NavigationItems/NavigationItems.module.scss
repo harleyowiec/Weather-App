@@ -9,6 +9,12 @@
   margin: 0;
   padding: 40px 30px 0 10px;
   transition: all 1s ease;
+  @media screen and (min-width: 550px) {
+    flex-direction: row;
+    position: static;
+    height: auto;
+    padding: 10px;
+  }
 }
 
 .MobileMenuActive {
@@ -16,14 +22,8 @@
   background-color: #fff;
 }
 
-@media screen and (min-width: 550px) {
-  .NavigationItems {
-    flex-direction: row;
-    position: static;
-    height: auto;
-    padding: 10px;
-  }
-  .ToggleMenu {
+.ToggleMenu {
+  @media screen and (min-width: 550px) {
     display: none;
   }
 }

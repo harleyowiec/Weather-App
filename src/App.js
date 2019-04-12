@@ -6,18 +6,20 @@ import WeatherForecast from "./containers/WeatherForecast/WeatherForecast";
 import DayForecast from "./containers/DayForecast/DayForecast";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   state = {
-    cityName: ""
+    cityName: "",
+    weatherApiKey: "65524a897a3f46aa866201755191303"
   };
 
   handleToUpdate = someArg => {
-    this.setState({
-      cityName: someArg
-    });
+    this.setState(
+      {
+        cityName: someArg
+      },
+      () => {
+        console.log(this.state.cityName);
+      }
+    );
   };
 
   render() {
@@ -27,11 +29,21 @@ class App extends Component {
           <Switch>
             <Route
               path="/forecast"
-              render={() => <WeatherForecast cityName={this.state.cityName} />}
+              render={() => (
+                <WeatherForecast
+                  cityName={this.state.cityName}
+                  apiKey={this.state.weatherApiKey}
+                />
+              )}
             />
             <Route
               path="/"
-              render={() => <DayForecast cityName={this.state.cityName} />}
+              render={() => (
+                <DayForecast
+                  cityName={this.state.cityName}
+                  apiKey={this.state.weatherApiKey}
+                />
+              )}
             />
           </Switch>
         </Layout>

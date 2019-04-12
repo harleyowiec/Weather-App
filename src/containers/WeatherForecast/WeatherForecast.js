@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 
 import WeatherDay from "../../components/weatherDay/WeatherDay";
-import SearchCity from "../../components/searchCity/SearchCity";
 
-import classes from "./WeatherForecast.module.css";
+import classes from "./WeatherForecast.module.scss";
 
 class WeatherForecast extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   state = {
     weather: null,
     cityName: this.props.cityName
@@ -17,25 +12,27 @@ class WeatherForecast extends Component {
 
   componentDidMount() {
     if (this.state.cityName !== null) {
-      this.getWeather();
+      this.getWeather(this.state.cityName);
     }
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.cityName !== prevProps.cityName) {
-      this.setState({
-        cityName: this.props.cityName
-      });
-      this.getWeather();
+      this.setState(
+        {
+          cityName: this.props.cityName
+        },
+        () => {
+          this.getWeather(this.state.cityName);
+        }
+      );
     }
   }
 
   getWeather = async cityName => {
-    const apiKey = "65524a897a3f46aa866201755191303";
+    const apiKey = this.props.apiKey;
     const api_call = await fetch(
-      `http://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${
-        this.props.cityName
-      }&days=5`
+      `http://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=5`
     );
     const response = await api_call.json();
 
@@ -46,8 +43,6 @@ class WeatherForecast extends Component {
         weather: response
       });
     }
-
-    console.log(response);
   };
 
   render() {

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
 import Navbar from "../components/navbar/Navbar";
 
-import classes from "./Layout.module.css";
+import classes from "./Layout.module.scss";
 import SearchCity from "../components/searchCity/SearchCity";
 
 class Layout extends Component {
@@ -28,7 +27,6 @@ class Layout extends Component {
 
   handleClick = e => {
     const el = e.srcElement.className;
-
     if (this.state.activeMobileMenu) {
       if (!el.includes("NavigationItems") && !el.includes("fa-bars")) {
         this.setState({

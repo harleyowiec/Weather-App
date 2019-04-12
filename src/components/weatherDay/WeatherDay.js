@@ -1,18 +1,25 @@
 import React from "react";
 
-import classes from "./WeatherDay.module.css";
+import classes from "./WeatherDay.module.scss";
 
 const WeatherDay = props => {
+  const dateStr = props.date;
+  let day;
+
   const getDayName = (dateStr, locale) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString(locale, { weekday: "long" });
   };
 
-  const dateStr = props.date;
-  const day = getDayName(dateStr, "en-US"); // Gives back 'Vrijdag' which is Dutch for Friday.
+  day = getDayName(dateStr, "pl-PL");
+
+  const capitalizeWord = word => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  };
+
   return (
     <div className={classes.container}>
-      <h4 className={classes.dayName}>{day}</h4>
+      <h4 className={classes.dayName}>{capitalizeWord(day)}</h4>
       <img
         src={props.imgSrc}
         alt={props.imgAlt}
