@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Layout from "./hoc/Layout";
 import WeatherForecast from "./containers/WeatherForecast/WeatherForecast";
 import DayForecast from "./containers/DayForecast/DayForecast";
+import SwitchWithSlide from "./components/SwitchWithSlide";
 
 class App extends Component {
   state = {
@@ -26,7 +27,7 @@ class App extends Component {
     return (
       <>
         <Layout handleToUpdate={this.handleToUpdate}>
-          <Switch>
+          <SwitchWithSlide>
             <Route
               path="/forecast"
               render={() => (
@@ -45,7 +46,7 @@ class App extends Component {
                 />
               )}
             />
-          </Switch>
+          </SwitchWithSlide>
         </Layout>
       </>
     );
