@@ -88,7 +88,7 @@ class Layout extends Component {
             activateSearch={this.activateSearch}
             buttonState={this.state.buttonActive}
           />
-          <div class="weatherCards">{this.props.children}</div>
+          <div className={classes.weatherCards}>{this.props.children}</div>
         </main>
       </div>
     );
