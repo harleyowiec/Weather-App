@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import WeatherDay from "./../../components/weatherDay/WeatherDay";
+import classes from "./DayForecast.module.scss";
 
 export default class DayForecast extends Component {
   state = {
@@ -32,7 +33,7 @@ export default class DayForecast extends Component {
   getWeather = async cityName => {
     const apiKey = this.props.apiKey;
     const api_call = await fetch(
-      `http://api.apixu.com/v1/current.json?key=${apiKey}&q=$${cityName}`
+      `https://api.apixu.com/v1/current.json?key=${apiKey}&q=$${cityName}`
     );
     const response = await api_call.json();
 
@@ -43,19 +44,26 @@ export default class DayForecast extends Component {
         weather: response
       });
     }
+
+    console.log(response);
   };
 
   render() {
     return (
-      <div>
+      <div className={classes.Container}>
         {this.state.weather !== null ? (
-          <WeatherDay
-            date={this.state.weather.current.last_updated}
-            imgSrc={this.state.weather.current.condition.icon}
-            imgAlt={this.state.weather.current.condition.text}
-            maxTmp={this.state.weather.current.temp_c}
-            minTmp={this.state.weather.current.temp_c}
-          />
+          <>
+            <p className={classes.Location}>
+              Current temperature in: {this.state.weather.location.name},{" "}
+              {this.state.weather.location.country}
+            </p>
+            <WeatherDay
+              date={this.state.weather.current.last_updated}
+              imgSrc={this.state.weather.current.condition.icon}
+              imgAlt={this.state.weather.current.condition.text}
+              maxTmp={this.state.weather.current.temp_c}
+            />
+          </>
         ) : null}
       </div>
     );

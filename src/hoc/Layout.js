@@ -36,20 +36,14 @@ class Layout extends Component {
     }
   };
 
-  setCityName = e => {
-    this.setState({
-      cityName: e.target.value
-    });
-  };
-
   toggleMobileMenu = () => {
     this.setState(prevState => {
       return { activeMobileMenu: !prevState.activeMobileMenu };
     });
   };
-  setCityName = e => {
+  setCityName = lat => {
     this.setState({
-      cityName: e.target.value
+      cityName: lat
     });
   };
 
@@ -59,6 +53,7 @@ class Layout extends Component {
 
   activateSearch = () => {
     if (this.state.buttonActive === false) {
+      console.log(2);
       this.setState({
         buttonActive: true
       });

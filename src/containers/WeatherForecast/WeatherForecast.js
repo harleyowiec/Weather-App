@@ -51,6 +51,13 @@ class WeatherForecast extends Component {
   render() {
     return (
       <>
+        {this.state.weather !== null && (
+          <p className={classes.Location}>
+            Forecast on the next 5 days in: {this.state.weather.location.name},{" "}
+            {this.state.weather.location.country}
+          </p>
+        )}
+
         <div className={classes.Container}>
           {this.state.weather !== null &&
             this.state.weather.forecast.forecastday.map(item => {
