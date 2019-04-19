@@ -12,8 +12,8 @@ const NavigationItems = props => {
         classes.NavigationItems
       ].join(" ")}
     >
-      <NavigationItem link="/forecast">Prognoza</NavigationItem>
-      <NavigationItem link="/">Pogoda dziś</NavigationItem>
+      <NavigationItem link="/forecast">Forecast</NavigationItem>
+      <NavigationItem link="/">Current</NavigationItem>
     </ul>
   );
 };
