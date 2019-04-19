@@ -44,28 +44,28 @@ export default class DayForecast extends Component {
         weather: response
       });
     }
-
-    console.log(response);
   };
 
   render() {
     return (
-      <div className={classes.Container}>
+      <>
         {this.state.weather !== null ? (
           <>
             <p className={classes.Location}>
               Current temperature in: {this.state.weather.location.name},{" "}
               {this.state.weather.location.country}
             </p>
-            <WeatherDay
-              date={this.state.weather.current.last_updated}
-              imgSrc={this.state.weather.current.condition.icon}
-              imgAlt={this.state.weather.current.condition.text}
-              maxTmp={this.state.weather.current.temp_c}
-            />
+            <div className={classes.Container}>
+              <WeatherDay
+                date={this.state.weather.current.last_updated}
+                imgSrc={this.state.weather.current.condition.icon}
+                imgAlt={this.state.weather.current.condition.text}
+                maxTmp={this.state.weather.current.temp_c}
+              />
+            </div>
           </>
         ) : null}
-      </div>
+      </>
     );
   }
 }

@@ -27,8 +27,10 @@ const WeatherDay = props => {
       />
       <div className={classes.temperatures}>
         <div className={classes.maxTmp}>
-          <span className={classes.dayTmp}>{props.maxTmp}&#176;</span>{" "}
-          {props.minTmp}&#176;
+          <span className={classes.dayTmp}>{props.maxTmp}&#176;</span>
+          {props.minTmp && (
+            <span className={classes.nightTmp}>{props.minTmp}&#176;</span>
+          )}
         </div>
       </div>
     </div>

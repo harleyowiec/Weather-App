@@ -1,6 +1,8 @@
 .Location {
-  padding: 10px 15px;
-  border-radius: 20px;
-  background-color: #ffffffb3;
-  color: #000;
+  composes: LocationInfo from "./../../index.css";
+}
+
+.Container {
+  display: flex;
+  justify-content: center;
 }

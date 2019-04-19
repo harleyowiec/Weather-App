@@ -8,13 +8,11 @@ const searchCity = props => {
   let textInput = React.createRef();
 
   const handleClick = () => {
-    // console.log(textInput.current);
-    // textInput.current.focus();
+    textInput.current.focus();
   };
 
   const resultSelected = e => {
     const latlng = e.suggestion.latlng.lat + "," + e.suggestion.latlng.lng;
-    console.log(e.suggestion);
     props.onKeyUp(latlng);
   };
 
@@ -33,23 +31,33 @@ const searchCity = props => {
             classes.ToggleSearch
           ].join(" ")}
         >
-          Znajdź swoje miasto
+          Find your city
         </span>
-        <AlgoliaPlaces
-          placeholder="Write an address here"
+        <label
+          htmlFor="name"
+          className={
+            props.buttonState === true ? classes.Active : classes.Inactive
+          }
           ref={textInput}
-          options={{
-            appId: "plJOTIVAYJDS",
-            apiKey: "67bd3991d47603b5d18888fa8ad6b37f"
-          }}
-          // onKeyUp={props.onKeyUp}
-          onKeyDown={props.onKeyPress}
-          className={[
-            props.buttonState === true ? classes.Active : classes.Inactive,
-            classes.SearchInput
-          ].join(" ")}
-          onChange={e => resultSelected(e)}
-        />
+        >
+          <AlgoliaPlaces
+            placeholder="Write an city here"
+            id="name"
+            options={{
+              appId: props.algoliaSearchId,
+              apiKey: props.algoliaSearchApiKey,
+              templates: {
+                value: function(suggestion) {
+                  return suggestion.name;
+                }
+              },
+              type: "city"
+            }}
+            className={classes.SearchInput}
+            onKeyDown={props.onKeyPress}
+            onChange={e => resultSelected(e)}
+          />
+        </label>
 
         <button
           onClick={props.onClick}
@@ -58,7 +66,7 @@ const searchCity = props => {
             classes.SearchButton
           ].join(" ")}
         >
-          Wyszukaj
+          Search
         </button>
       </div>
     </>

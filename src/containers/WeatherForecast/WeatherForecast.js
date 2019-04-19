@@ -14,7 +14,6 @@ class WeatherForecast extends Component {
     if (this.state.cityName !== null) {
       this.getWeather(this.state.cityName);
     }
-    console.log();
   }
 
   componentDidUpdate(prevProps) {
@@ -44,8 +43,6 @@ class WeatherForecast extends Component {
         weather: response
       });
     }
-
-    console.log(response);
   };
 
   render() {

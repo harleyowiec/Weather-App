@@ -53,7 +53,6 @@ class Layout extends Component {
 
   activateSearch = () => {
     if (this.state.buttonActive === false) {
-      console.log(2);
       this.setState({
         buttonActive: true
       });
@@ -82,6 +81,8 @@ class Layout extends Component {
             className={classes.SearchCity}
             activateSearch={this.activateSearch}
             buttonState={this.state.buttonActive}
+            algoliaSearchId={this.props.algoliaSearchId}
+            algoliaSearchApiKey={this.props.algoliaSearchApiKey}
           />
           <div className={classes.weatherCards}>{this.props.children}</div>
         </main>
