@@ -32,7 +32,7 @@ class WeatherForecast extends Component {
   getWeather = async cityName => {
     const apiKey = this.props.apiKey;
     const api_call = await fetch(
-      `http://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=5`
+      `https://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=5`
     );
     const response = await api_call.json();
 
