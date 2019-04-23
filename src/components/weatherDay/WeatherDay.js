@@ -11,7 +11,7 @@ const WeatherDay = props => {
     return date.toLocaleDateString(locale, { weekday: "long" });
   };
 
-  day = getDayName(dateStr, "pl-PL");
+  day = getDayName(dateStr, "en-US");
 
   const capitalizeWord = word => {
     return word.charAt(0).toUpperCase() + word.slice(1);
