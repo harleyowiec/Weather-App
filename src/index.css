@@ -46,3 +46,9 @@ body {
     height: 100%;
   }
 }
+
+@media screen and (min-width: 550px) {
+  .ap-dropdown-menu {
+    width: 450px;
+  }
+}
