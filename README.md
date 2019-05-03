@@ -1,5 +1,9 @@
 ## Weather App
 
+Live site: [YWeather](https://yweatherapp.000webhostapp.com)
+
+![Alt screen](https://raw.githubusercontent.com/Harleyowiec/Weather-App/master/weather-screen.PNG)
+
 Simple React application that allows the user to check the current weather in the selected city or to check the forecast for the next 5 days. I created this application to train main React concepts.
 
 While creating this application I have learned:
